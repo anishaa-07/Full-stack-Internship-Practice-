@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practical 3A — Multimedia Gallery Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== NAV BAR (4 <a> tags: absolute, relative, mailto, #anchor) ========== -->
+  <header class="site-header">
+    <div class="logo">Wander<span>Lens</span></div>
+    <nav class="navbar">
+      <a href="https://www.google.com" target="_blank" rel="noopener">Home</a>
+      <!-- Relative link -->
+      <a href="about.html">About</a>
+      <!-- Mailto link -->
+      <a href="mailto:contact@wanderlens.com">Contact</a>
+      <!-- Anchor link (jumps to section on same page) -->
+      <a href="#video-section">Watch Video</a>
+    </nav>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <h1>Multimedia Gallery</h1>
+    <p>A showcase of photography, video and sound — built for Practical 3A.</p>
+  </section>
+
+  <!-- ========== FIGURE GALLERY (6 figures, img + figcaption) ========== -->
+  <main>
+    <section class="gallery-section">
+      <h2>Photo Gallery</h2>
+      <div class="gallery">
+
+        <figure>
+          <img src="https://picsum.photos/seed/mountain/500/350" alt="Snow-capped mountain range at sunrise">
+          <figcaption>Sunrise over the Himalayas</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/beach/500/350" alt="Empty tropical beach with turquoise water">
+          <figcaption>Quiet shores of Havelock Island</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/city/500/350" alt="City skyline lit up at night">
+          <figcaption>Mumbai skyline after dark</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/forest/500/350" alt="Dense green forest with sunlight filtering through trees">
+          <figcaption>Morning light in the Western Ghats</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/desert/500/350" alt="Sand dunes in a desert landscape">
+          <figcaption>Golden dunes of the Thar Desert</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://picsum.photos/seed/lake/500/350" alt="Still mountain lake reflecting the sky">
+          <figcaption>Reflections at Dal Lake</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ========== VIDEO EMBED ========== -->
+    <section class="video-section" id="video-section">
+      <h2>Featured Video</h2>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="Featured travel video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- ========== AUDIO PLAYER ========== -->
+    <section class="audio-section">
+      <h2>Ambient Sound</h2>
+      <p>Background nature sounds to go with the gallery.</p>
+      <audio controls>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 WanderLens — Practical 3A: Multimedia Gallery Page</p>
+  </footer>
+
+</body>
+</html>
