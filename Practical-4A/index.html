@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form | Practical 4A</title>
+  <meta name="description" content="Multi-section registration form built with semantic HTML5 and native form validation.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="page-header">
+    <div class="page-header__inner">
+      <p class="page-header__eyebrow">Full-Stack Internship &middot; Practical 4A</p>
+      <h1 class="page-header__title">Create Your Account</h1>
+      <p class="page-header__subtitle">Fill in your personal and account details below. Fields marked <span class="required-flag">*</span> are required.</p>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <form class="reg-form" method="POST" action="#" novalidate>
+
+      <!-- SECTION 1: PERSONAL INFO -->
+      <fieldset class="reg-form__section">
+        <legend class="reg-form__legend">
+          <span class="reg-form__legend-index">01</span> Personal Info
+        </legend>
+
+        <div class="form-grid">
+
+          <div class="form-field">
+            <label for="fullname">Full Name <span class="required-flag">*</span></label>
+            <input
+              type="text"
+              id="fullname"
+              name="fullname"
+              placeholder="e.g. Anisha Sharma"
+              minlength="2"
+              required
+              autocomplete="name">
+            <span class="form-field__hint">Minimum 2 characters.</span>
+          </div>
+
+          <div class="form-field">
+            <label for="dob">Date of Birth</label>
+            <input
+              type="date"
+              id="dob"
+              name="dob"
+              autocomplete="bday">
+          </div>
+
+          <div class="form-field">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="9876543210"
+              pattern="[0-9]{10}"
+              autocomplete="tel">
+            <span class="form-field__hint">10 digits, numbers only.</span>
+          </div>
+
+          <fieldset class="form-field form-field--radio-group">
+            <legend>Gender</legend>
+            <div class="radio-row">
+              <label class="radio-option" for="gender-female">
+                <input type="radio" id="gender-female" name="gender" value="female">
+                <span>Female</span>
+              </label>
+              <label class="radio-option" for="gender-male">
+                <input type="radio" id="gender-male" name="gender" value="male">
+                <span>Male</span>
+              </label>
+              <label class="radio-option" for="gender-other">
+                <input type="radio" id="gender-other" name="gender" value="other">
+                <span>Other</span>
+              </label>
+            </div>
+          </fieldset>
+
+        </div>
+      </fieldset>
+
+      <!-- SECTION 2: ACCOUNT INFO -->
+      <fieldset class="reg-form__section">
+        <legend class="reg-form__legend">
+          <span class="reg-form__legend-index">02</span> Account Info
+        </legend>
+
+        <div class="form-grid">
+
+          <div class="form-field">
+            <label for="email">Email Address <span class="required-flag">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+              autocomplete="email">
+          </div>
+
+          <div class="form-field">
+            <label for="password">Password <span class="required-flag">*</span></label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Minimum 8 characters"
+              minlength="8"
+              required
+              autocomplete="new-password">
+            <span class="form-field__hint">At least 8 characters.</span>
+          </div>
+
+          <div class="form-field">
+            <label for="country">Country</label>
+            <select id="country" name="country" autocomplete="country">
+              <option value="">-- Choose Country --</option>
+              <option value="in">India</option>
+              <option value="us">United States</option>
+              <option value="uk">United Kingdom</option>
+              <option value="ca">Canada</option>
+              <option value="au">Australia</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="profile-pic">Profile Picture</label>
+            <input
+              type="file"
+              id="profile-pic"
+              name="profile-pic"
+              accept=".jpg,.jpeg,.png">
+            <span class="form-field__hint">JPG or PNG only.</span>
+          </div>
+
+        </div>
+      </fieldset>
+
+      <div class="reg-form__actions">
+        <button type="reset" class="btn btn--ghost">Reset</button>
+        <button type="submit" class="btn btn--primary">Create Account</button>
+      </div>
+
+    </form>
+  </main>
+
+  <footer class="page-footer">
+    <p>&copy; 2026 Anisha Sharma &middot; Full-Stack Internship Practicals</p>
+  </footer>
+
+</body>
+</html>
