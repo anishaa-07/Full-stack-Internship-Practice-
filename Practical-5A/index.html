@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Component Library | Practical 5A</title>
+  <meta name="description" content="A CSS component library demonstrating custom properties, typography scale, cards, and interactive states.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="page-header">
+    <div class="page-header__inner">
+      <p class="page-header__eyebrow">Full-Stack Internship &middot; Practical 5A</p>
+      <h1 class="page-header__title">Styled Component Library</h1>
+      <p class="page-header__subtitle">A living style guide — custom properties, typography, cards, links, and buttons, all built with core CSS.</p>
+    </div>
+  </header>
+
+  <main class="page-main">
+
+    <!-- SECTION 1: DESIGN TOKENS -->
+    <section class="showcase-section" aria-labelledby="tokens-heading">
+      <h2 id="tokens-heading" class="showcase-section__title">
+        <span class="showcase-section__index">01</span> Design Tokens
+      </h2>
+      <p class="showcase-section__desc">Every colour, spacing value, and radius below is a CSS custom property defined once in <code>:root</code> and reused everywhere.</p>
+
+      <div class="token-grid">
+        <div class="token-swatch" style="background: var(--color-primary);">
+          <span class="token-swatch__label">--color-primary</span>
+        </div>
+        <div class="token-swatch" style="background: var(--color-secondary);">
+          <span class="token-swatch__label">--color-secondary</span>
+        </div>
+        <div class="token-swatch" style="background: var(--color-accent);">
+          <span class="token-swatch__label">--color-accent</span>
+        </div>
+        <div class="token-swatch" style="background: var(--color-success);">
+          <span class="token-swatch__label">--color-success</span>
+        </div>
+        <div class="token-swatch" style="background: var(--color-danger);">
+          <span class="token-swatch__label">--color-danger</span>
+        </div>
+        <div class="token-swatch token-swatch--dark" style="background: var(--color-surface);">
+          <span class="token-swatch__label">--color-surface</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: TYPOGRAPHY -->
+    <section class="showcase-section" aria-labelledby="type-heading">
+      <h2 id="type-heading" class="showcase-section__title">
+        <span class="showcase-section__index">02</span> Typography Scale
+      </h2>
+      <p class="showcase-section__desc">Headings sized with <code>rem</code> units so they scale consistently with the root font size.</p>
+
+      <div class="type-scale">
+        <h1>H1 — Heading One <span class="type-scale__meta">2.75rem</span></h1>
+        <h2>H2 — Heading Two <span class="type-scale__meta">2.1rem</span></h2>
+        <h3>H3 — Heading Three <span class="type-scale__meta">1.5rem</span></h3>
+        <p>Body paragraph text sits at the base <code>1rem</code> size with a comfortable <code>1.6</code> line-height for readability.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CARDS -->
+    <section class="showcase-section" aria-labelledby="cards-heading">
+      <h2 id="cards-heading" class="showcase-section__title">
+        <span class="showcase-section__index">03</span> Card Component
+      </h2>
+      <p class="showcase-section__desc">A reusable <code>.card</code> class combining padding, border, border-radius, and box-shadow.</p>
+
+      <div class="card-grid">
+        <article class="card">
+          <span class="card__icon" aria-hidden="true">&#9733;</span>
+          <h3 class="card__title">Standard Card</h3>
+          <p class="card__text">Base card style with border, radius, and a soft resting shadow that lifts on hover.</p>
+        </article>
+
+        <article class="card card--featured">
+          <span class="card__icon" aria-hidden="true">&#9889;</span>
+          <h3 class="card__title">Featured Card</h3>
+          <p class="card__text">Same structure, accent border and glow to signal importance — a modifier, not a new component.</p>
+        </article>
+
+        <article class="card">
+          <span class="card__icon" aria-hidden="true">&#128274;</span>
+          <h3 class="card__title">Standard Card</h3>
+          <p class="card__text">Hover or focus any card to see the transform and shadow transition in action.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 4: LINKS & BUTTONS -->
+    <section class="showcase-section" aria-labelledby="interactive-heading">
+      <h2 id="interactive-heading" class="showcase-section__title">
+        <span class="showcase-section__index">04</span> Links &amp; Buttons
+      </h2>
+      <p class="showcase-section__desc">Try hovering and <kbd>Tab</kbd>-focusing through these — every interactive element has distinct <code>:hover</code> and <code>:focus-visible</code> states.</p>
+
+      <div class="interactive-demo">
+        <div class="interactive-demo__group">
+          <p class="interactive-demo__label">Links</p>
+          <a href="#tokens-heading" class="link-demo">Jump to Design Tokens</a>
+          <a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer" class="link-demo">External: MDN Docs &rarr;</a>
+        </div>
+
+        <div class="interactive-demo__group">
+          <p class="interactive-demo__label">Buttons</p>
+          <div class="button-row">
+            <button type="button" class="btn btn--primary">Primary</button>
+            <button type="button" class="btn btn--secondary">Secondary</button>
+            <button type="button" class="btn btn--ghost">Ghost</button>
+            <button type="button" class="btn btn--danger">Danger</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>&copy; 2026 Anisha Sharma &middot; Full-Stack Internship Practicals</p>
+  </footer>
+
+</body>
+</html>
