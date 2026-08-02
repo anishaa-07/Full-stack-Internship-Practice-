@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practical 8A — Magazine-Style Grid Layout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Full-page named-area grid (Requirement 36) ===== -->
+  <div class="magazine">
+
+    <header class="magazine__header">
+      <div class="header__logo">THE&nbsp;DAILY&nbsp;GRID</div>
+      <nav class="header__nav">
+        <a href="#">World</a>
+        <a href="#">Tech</a>
+        <a href="#">Culture</a>
+        <a href="#">Opinion</a>
+      </nav>
+    </header>
+
+    <aside class="magazine__sidebar">
+      <h3 class="sidebar__title">Trending</h3>
+      <ul class="sidebar__list">
+        <li><a href="#">01. The rise of CSS Grid in real products</a></li>
+        <li><a href="#">02. Why print design principles still matter</a></li>
+        <li><a href="#">03. Inside a modern newsroom's build pipeline</a></li>
+        <li><a href="#">04. Typography trends for 2026</a></li>
+        <li><a href="#">05. The return of dense, editorial layouts</a></li>
+      </ul>
+    </aside>
+
+    <!-- ===== Article: 3-column grid, first image spans 2 (Requirement 37) ===== -->
+    <main class="magazine__article">
+      <h1 class="article__headline">Grid Named Areas: Designing Like a Newsroom</h1>
+      <p class="article__byline">By Anisha &middot; Full-Stack Internship &middot; Practical 8A</p>
+
+      <div class="article__grid">
+        <img
+          class="article__image article__image--lead"
+          src="https://picsum.photos/id/1040/700/400"
+          alt="Editorial newsroom desk with layout boards, representing grid-based design">
+
+        <p>Long before CSS Grid existed, print magazines were already solving the exact
+          problem it solves today: arranging text, images, and pull-quotes into a
+          structured, multi-column page that still reads naturally from top to bottom.
+          <code>grid-template-areas</code> is, in a sense, CSS finally catching up to
+          what paste-up artists were doing with physical layout boards decades ago.</p>
+
+        <p>The lead image above uses <code>grid-column: span 2</code>, so instead of
+          occupying a single track like the paragraphs beside it, it stretches across
+          two of the article's three columns — exactly the kind of dominant, attention-
+          grabbing treatment a lead photo gets on a real magazine spread.</p>
+
+        <p>Every gutter you see on this page — between columns, between rows, between
+          the header and the body — comes from a single <code>gap</code> declaration on
+          each grid container. There isn't a single <code>margin</code> hack anywhere
+          in this layout; every bit of spacing is Grid's own gutter system.</p>
+
+        <img
+          class="article__image"
+          src="https://picsum.photos/id/1050/400/300"
+          alt="Close-up of a printed magazine spread on a light table">
+
+        <p>Because <code>grid-template-areas</code> names each region of the page
+          directly in the CSS — <code>header</code>, <code>sidebar</code>,
+          <code>article</code>, <code>ads</code>, <code>footer</code> — the HTML stays
+          completely flat and semantic. There's no need for wrapper divs whose only job
+          is to create a layout hook; the grid areas do that work instead.</p>
+
+        <p>This is also why the whole page collapses gracefully on mobile: the media
+          query at 600px simply redefines <code>grid-template-areas</code> with the
+          regions stacked in a single column, and every element automatically re-flows
+          into its new position — no restructuring of the HTML required at all.</p>
+      </div>
+
+      <!-- ===== Related Articles: auto-fit grid (Requirement 38) ===== -->
+      <section class="related">
+        <h2 class="related__title">Related Articles</h2>
+        <div class="related__grid">
+          <article class="related__card">
+            <h4>Understanding auto-fit vs auto-fill</h4>
+            <p>The subtle difference that decides whether empty tracks collapse.</p>
+          </article>
+          <article class="related__card">
+            <h4>grid-column: span, explained</h4>
+            <p>How elements can claim more than one track without extra markup.</p>
+          </article>
+          <article class="related__card">
+            <h4>Building layouts without a single wrapper div</h4>
+            <p>Named grid areas and what they mean for semantic HTML.</p>
+          </article>
+          <article class="related__card">
+            <h4>Gap vs margin: picking the right gutter tool</h4>
+            <p>Why modern layout code rarely needs margin for spacing anymore.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Advertisement rail -->
+    <aside class="magazine__ads">
+      <div class="ad-slot">
+        <span class="ad-slot__label">Advertisement</span>
+        <p>300 × 250</p>
+      </div>
+      <div class="ad-slot">
+        <span class="ad-slot__label">Advertisement</span>
+        <p>300 × 600</p>
+      </div>
+    </aside>
+
+    <footer class="magazine__footer">
+      <p>&copy; 2026 Anisha — Full-Stack Internship — Practical 8A: Magazine-Style Grid Layout</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
