@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practical 9A — Responsive Portfolio (Mobile-First)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Nav: vertical on mobile, horizontal at 768px+ (Req 41 & 42) ===== -->
+  <header class="site-header">
+    <div class="site-header__bar">
+      <a href="#" class="logo">Anisha<span>.</span>dev</a>
+    </div>
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="layout">
+
+    <main class="content">
+
+      <!-- ===== Hero ===== -->
+      <section id="home" class="hero">
+        <h1>Hi, I'm Anisha 👋</h1>
+        <p>Full-Stack Development Intern — building responsive, accessible interfaces
+          one practical at a time. This portfolio page is mobile-first: written for
+          the smallest screen first, then progressively enhanced upward.</p>
+      </section>
+
+      <!-- ===== Projects: 1 col mobile -> 2 col @768 -> 3 col @1024 (Req 42 & 43) ===== -->
+      <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="projects__grid">
+          <article class="project-card">
+            <div class="project-card__thumb">🖼️</div>
+            <h3>Multimedia Gallery</h3>
+            <p>Practical 3A — nav links, figure captions, embedded video &amp; audio.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-card__thumb">📝</div>
+            <h3>Registration Form</h3>
+            <p>Practical 4A — validated multi-section form with fieldsets.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-card__thumb">🎨</div>
+            <h3>Component Library</h3>
+            <p>Practical 5A — CSS custom properties, cascade, hover states.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-card__thumb">📌</div>
+            <h3>Positioned UI</h3>
+            <p>Practical 6A — fixed nav, sticky headings, tooltip, float.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-card__thumb">📊</div>
+            <h3>Flexbox Dashboard</h3>
+            <p>Practical 7A — 3-column dashboard, wrapping card grid.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-card__thumb">🗞️</div>
+            <h3>Magazine Grid</h3>
+            <p>Practical 8A — named grid areas, spanning lead image.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== Skills ===== -->
+      <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <ul class="skills__list">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>Flexbox</li>
+          <li>CSS Grid</li>
+          <li>Responsive Design</li>
+          <li>Git &amp; GitHub</li>
+        </ul>
+      </section>
+
+      <!-- ===== Contact ===== -->
+      <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>Interested in working together? Reach out below.</p>
+        <a class="contact__cta" href="mailto:anisha@example.com">Say Hello →</a>
+      </section>
+
+    </main>
+
+    <!-- ===== Sidebar: only appears at 1024px+ (Requirement 43) ===== -->
+    <aside class="sidebar">
+      <h3>Quick Facts</h3>
+      <ul>
+        <li><strong>Role:</strong> Full-Stack Intern</li>
+        <li><strong>Focus:</strong> HTML &amp; CSS</li>
+        <li><strong>Practicals done:</strong> 9 / 12</li>
+        <li><strong>Currently learning:</strong> Responsive Design</li>
+      </ul>
+      <h3>Connect</h3>
+      <ul>
+        <li><a href="https://github.com/anishaa-07">GitHub ↗</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Anisha — Full-Stack Internship — Practical 9A: Responsive Portfolio Layout</p>
+  </footer>
+
+</body>
+</html>

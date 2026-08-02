@@ -1,0 +1,292 @@
+/* =========================================================
+   Practical 9A — Responsive Portfolio Layout (Mobile-First)
+   Concepts: mobile-first CSS, min-width media queries,
+             prefers-color-scheme, responsive grid
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================================
+   Requirement 44: Light theme (default) via custom properties
+   ========================================================= */
+:root {
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text: #1e293b;
+  --color-muted: #64748b;
+  --color-primary: #7c3aed;
+  --color-primary-dark: #5b21b6;
+  --color-border: #e2e8f0;
+  --radius: 0.6rem;
+  --shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+/* =========================================================
+   Requirement 44: Dark theme -- honours OS preference
+   ========================================================= */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f172a;
+    --color-surface: #1e293b;
+    --color-text: #f1f5f9;
+    --color-muted: #94a3b8;
+    --color-primary: #a78bfa;
+    --color-primary-dark: #c4b5fd;
+    --color-border: #334155;
+    --shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.7;
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+/* =========================================================
+   BASE (MOBILE) STYLES -- no media query
+   This is the foundation every device gets by default.
+   Requirement 41: single column, vertical nav.
+   ========================================================= */
+
+.site-header {
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.25rem;
+}
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--color-text);
+}
+
+.logo span {
+  color: var(--color-primary);
+}
+
+/* MOBILE: nav links stacked vertically, full width */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.75rem;
+}
+
+.nav a {
+  color: var(--color-text);
+  font-weight: 500;
+  padding: 0.6rem 0.4rem;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  background: var(--color-bg);
+  color: var(--color-primary);
+}
+
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+.hero,
+.projects,
+.skills,
+.contact {
+  margin-bottom: 2.5rem;
+}
+
+.hero p,
+.contact p {
+  color: var(--color-muted);
+  max-width: 60ch;
+}
+
+/* MOBILE: single-column project grid */
+.projects__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+}
+
+.project-card__thumb {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.skills__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.skills__list li {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+}
+
+.contact__cta {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.contact__cta:hover {
+  background: var(--color-primary-dark);
+}
+
+/* MOBILE: sidebar hidden entirely (Requirement 43 -- appears only at 1024px+) */
+.sidebar {
+  display: none;
+}
+
+.site-footer {
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  padding: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* =========================================================
+   Requirement 42: TABLET and up (768px+)
+   Nav goes horizontal, project grid becomes 2 columns
+   ========================================================= */
+@media (min-width: 768px) {
+  .site-header__bar {
+    padding-bottom: 0;
+  }
+
+  .nav {
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-top: 0;
+  }
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+
+  .site-header__bar {
+    flex: 0 0 auto;
+  }
+
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .layout {
+    padding: 2rem;
+  }
+}
+
+/* =========================================================
+   Requirement 43: DESKTOP and up (1024px+)
+   Project grid becomes 3 columns, sidebar appears
+   ========================================================= */
+@media (min-width: 1024px) {
+  .projects__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .sidebar {
+    display: block;
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    position: sticky;
+    top: 1.5rem;
+  }
+
+  .sidebar h3 {
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin-top: 1.25rem;
+  }
+
+  .sidebar h3:first-child {
+    margin-top: 0;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin-top: 0.5rem;
+  }
+}
+
+/* =========================================================
+   Requirement 45 note: test at 375px / 768px / 1280px
+   in Chrome DevTools Device Toolbar.
+   ========================================================= */
