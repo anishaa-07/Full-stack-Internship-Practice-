@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practical 7A — Flexbox Dashboard Layout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <!-- ===== Header (Requirement 31 & 35) ===== -->
+    <header class="dashboard__header">
+      <div class="header__logo">
+        <span class="header__logo-icon">◆</span>
+        <span class="header__logo-text">FlexDash</span>
+      </div>
+      <nav class="header__nav">
+        <a href="#overview">Overview</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#settings">Settings</a>
+      </nav>
+      <div class="header__profile">👤 Anisha</div>
+    </header>
+
+    <!-- ===== Body: sidebar + main + secondary sidebar (Requirement 32) ===== -->
+    <div class="dashboard__body">
+
+      <!-- Left sidebar: 250px fixed -->
+      <aside class="sidebar sidebar--left">
+        <h3 class="sidebar__title">Menu</h3>
+        <ul class="sidebar__list">
+          <li><a href="#">🏠 Dashboard</a></li>
+          <li><a href="#">📊 Reports</a></li>
+          <li><a href="#">👥 Team</a></li>
+          <li><a href="#">📁 Projects</a></li>
+          <li><a href="#">💬 Messages</a></li>
+          <li><a href="#">⚙️ Settings</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main content: flexible, contains card grid -->
+      <main class="main-content" id="overview">
+        <h1 class="main-content__title">Dashboard Overview</h1>
+        <p class="main-content__subtitle">
+          A responsive 3-column dashboard built entirely with CSS Flexbox — fixed header,
+          two sidebars, and a wrapping card grid.
+        </p>
+
+        <!-- ===== Cards Container (Requirement 33 & 34) ===== -->
+        <div class="cards">
+          <article class="card">
+            <div class="card__icon">📈</div>
+            <h3 class="card__title">Revenue</h3>
+            <p class="card__text">Total revenue this month across all channels.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">👥</div>
+            <h3 class="card__title">Active Users</h3>
+            <p class="card__text">Users who logged in within the last 24 hours.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">🛒</div>
+            <h3 class="card__title">Orders</h3>
+            <p class="card__text">New orders placed since your last visit.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">⭐</div>
+            <h3 class="card__title">Reviews</h3>
+            <p class="card__text">Average rating from customer feedback forms.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">📦</div>
+            <h3 class="card__title">Inventory</h3>
+            <p class="card__text">Items currently in stock across all warehouses.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">🎯</div>
+            <h3 class="card__title">Goals</h3>
+            <p class="card__text">Progress toward this quarter's target metrics.</p>
+          </article>
+        </div>
+      </main>
+
+      <!-- Right sidebar: 200px fixed -->
+      <aside class="sidebar sidebar--right">
+        <h3 class="sidebar__title">Activity</h3>
+        <ul class="sidebar__activity">
+          <li>Anisha pushed to <strong>main</strong></li>
+          <li>New comment on Report #12</li>
+          <li>Task "Practical 7A" completed</li>
+          <li>3 new messages in Team chat</li>
+        </ul>
+      </aside>
+
+    </div>
+
+    <!-- ===== Sticky Footer (Requirement 31) ===== -->
+    <footer class="dashboard__footer">
+      <p>&copy; 2026 Anisha — Full-Stack Internship — Practical 7A: Flexbox Dashboard Layout</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
