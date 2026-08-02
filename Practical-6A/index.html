@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practical 6A — Positioned UI Components</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Fixed Navbar (Requirement 26 & 27) ===== -->
+  <nav class="navbar">
+    <div class="navbar__logo">PositionLab</div>
+    <ul class="navbar__links">
+      <li><a href="#section-one">Layout</a></li>
+      <li><a href="#section-two">Tooltip</a></li>
+      <li><a href="#section-three">Float</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+
+    <!-- ===== Intro ===== -->
+    <header class="intro">
+      <h1>CSS Positioning &amp; Float — Practical 6A</h1>
+      <p>Scroll down to see the fixed navbar stay put, the section headings stick to the top,
+        hover the badge for a custom tooltip, and watch text wrap around a floated image.</p>
+    </header>
+
+    <!-- ===== Section 1: Sticky Heading (Requirement 28) ===== -->
+    <section id="section-one" class="content-section">
+      <h2 class="sticky-heading">01 / Fixed &amp; Sticky Layout</h2>
+      <p>This heading uses <code>position: sticky; top: 60px;</code>, so once it reaches
+        60px from the top of the viewport (right below the fixed navbar) it locks in place
+        while the rest of this section keeps scrolling underneath it.</p>
+      <p><code>position: fixed</code> is different — the navbar above never moves at all,
+        no matter how far you scroll, because it's pinned relative to the
+        <strong>viewport</strong>, not the document. That's why we added
+        <code>padding-top: 60px</code> on the body — otherwise the fixed nav would sit
+        on top of and hide this very first line of content.</p>
+      <p>Notice the difference: <code>fixed</code> = always locked to screen.
+        <code>sticky</code> = locked only after scrolling past its normal position,
+        and only within its own parent container.</p>
+    </section>
+
+    <!-- ===== Section 2: Tooltip (Requirement 29) ===== -->
+    <section id="section-two" class="content-section">
+      <h2 class="sticky-heading">02 / Custom CSS Tooltip</h2>
+      <p>Hover over this badge to see a tooltip appear:
+        <span class="tooltip">
+          Hover me
+          <span class="tooltip__text">position: absolute inside position: relative parent!</span>
+        </span>
+      </p>
+      <p>The trick: the badge's parent (<code>.tooltip</code>) is set to
+        <code>position: relative</code>, which creates a positioning context. The tooltip
+        text itself (<code>.tooltip__text</code>) is <code>position: absolute</code>, so it
+        positions itself relative to that nearest relative ancestor — not the whole page.
+        By default it's hidden with <code>visibility: hidden</code> and revealed with a
+        smooth opacity transition on <code>:hover</code>.</p>
+      <p>Try another one right here:
+        <span class="tooltip">
+          Practical 6A
+          <span class="tooltip__text">Sticky sections, fixed nav, tooltip, float — all done!</span>
+        </span>
+        — same pattern, reused anywhere on the page.</p>
+    </section>
+
+    <!-- ===== Section 3: Float (Requirement 30) ===== -->
+    <section id="section-three" class="content-section">
+      <h2 class="sticky-heading">03 / Float &amp; Text Wrap</h2>
+      <img
+        src="https://picsum.photos/id/1015/300/300"
+        alt="Mountain river landscape used to demonstrate CSS float behaviour"
+        class="float-img">
+      <p>This paragraph's text wraps naturally around the floated image on the left,
+        exactly the way <code>float</code> was originally designed to be used back before
+        Flexbox and Grid existed — for magazine-style text wrapping around a picture.
+        The image is pulled out of normal document flow with <code>float: left</code>, and
+        every inline-level box beside it (like this text) flows around its remaining space.</p>
+      <p>Once the paragraph text runs longer than the image's height, it continues at full
+        width below the image, because the float only affects the box while its vertical
+        span overlaps the floated element. This is the classic behaviour that made floats
+        useful for editorial layouts, even though modern layout work now leans on Flexbox
+        and Grid for anything structural.</p>
+      <p>A clearfix (<code>.container::after { content:""; display:block; clear:both; }</code>)
+        is applied on this section so the floated image doesn't spill out and break the
+        layout of whatever section comes after it.</p>
+    </section>
+
+    <footer class="page-footer">
+      <p>&copy; 2026 Anisha — Full-Stack Internship — Practical 6A: Positioned UI Components</p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
