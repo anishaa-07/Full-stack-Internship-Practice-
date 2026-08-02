@@ -1,0 +1,252 @@
+/* =========================================================
+   Practical 10A — Animated Landing Page
+   Concepts: @keyframes, animation-delay (stagger),
+             transition on :hover, transform,
+             pure-CSS spinner, prefers-reduced-motion
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-text: #f1f5f9;
+  --color-muted: #94a3b8;
+  --color-primary: #38bdf8;
+  --color-primary-dark: #0ea5e9;
+  --radius: 0.75rem;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.7;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+a {
+  text-decoration: none;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--color-text);
+}
+
+/* =========================================================
+   Requirement 47: Nav link colour transition on hover
+   ========================================================= */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.navbar__logo {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.navbar__links {
+  list-style: none;
+  display: flex;
+  gap: 1.75rem;
+}
+
+.navbar__links a {
+  color: var(--color-muted);
+  font-weight: 500;
+  transition: color 0.2s ease; /* Requirement 47 -- exactly 0.2s ease */
+}
+
+.navbar__links a:hover,
+.navbar__links a:focus-visible {
+  color: var(--color-primary);
+}
+
+/* =========================================================
+   Requirement 46: Hero -- fadeInUp with staggered delays
+   ========================================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  text-align: center;
+  padding: 6rem 1.5rem 5rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 1rem;
+
+  animation: fadeInUp 0.6s ease-out both;
+  animation-delay: 0.1s; /* fires first */
+}
+
+.hero__subtitle {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+
+  animation: fadeInUp 0.6s ease-out both;
+  animation-delay: 0.3s; /* fires second -- staggered after title */
+}
+
+.hero__cta {
+  display: inline-block;
+  background: var(--color-primary);
+  color: #0f172a;
+  font-weight: 700;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+  animation: fadeInUp 0.6s ease-out both;
+  animation-delay: 0.5s; /* fires third -- staggered after subtitle */
+}
+
+.hero__cta:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+}
+
+/* =========================================================
+   Requirement 48: Feature cards -- translateY + shadow on hover
+   ========================================================= */
+.features {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+
+  /* Requirement 48: transform + box-shadow transition on hover */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(56, 189, 248, 0.18);
+}
+
+.feature-card__icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   Requirement 49: Pure-CSS spinner, no JavaScript
+   ========================================================= */
+.loading {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+  text-align: center;
+}
+
+.loading__caption {
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+
+  border: 5px solid var(--color-surface);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.page-footer {
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  padding: 1.5rem;
+  border-top: 1px solid var(--color-surface);
+}
+
+/* =========================================================
+   Requirement 50: prefers-reduced-motion -- disable ALL motion
+   Placed LAST so it overrides every animation/transition above
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* fadeInUp elements must still end up fully visible,
+     not frozen mid-animation at opacity:0 */
+  .hero__title,
+  .hero__subtitle,
+  .hero__cta {
+    opacity: 1;
+    transform: none;
+  }
+
+  .feature-card:hover,
+  .hero__cta:hover {
+    transform: none;
+  }
+}

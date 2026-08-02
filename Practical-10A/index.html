@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practical 10A — Animated Landing Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Nav: colour transition on hover (Requirement 47) ===== -->
+  <nav class="navbar">
+    <div class="navbar__logo">MotionKit</div>
+    <ul class="navbar__links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#loading">Loading</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Hero: fadeInUp with staggered delays (Requirement 46) ===== -->
+  <header id="hero" class="hero">
+    <h1 class="hero__title">Motion Makes Interfaces Feel Alive</h1>
+    <p class="hero__subtitle">
+      Every element on this page animates in with pure CSS — no JavaScript required.
+      Scroll down to see hover transitions, transform effects, and a spinner.
+    </p>
+    <a href="#features" class="hero__cta">Explore Features</a>
+  </header>
+
+  <main>
+
+    <!-- ===== Feature Cards: translateY + shadow on hover (Requirement 48) ===== -->
+    <section id="features" class="features">
+      <h2 class="section-title">Features</h2>
+      <div class="features__grid">
+        <article class="feature-card">
+          <div class="feature-card__icon">⚡</div>
+          <h3>Fast</h3>
+          <p>GPU-accelerated transforms keep every animation running at 60fps.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__icon">🎯</div>
+          <h3>Precise</h3>
+          <p>Staggered delays and easing curves make motion feel intentional.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__icon">♿</div>
+          <h3>Accessible</h3>
+          <p>Every animation respects prefers-reduced-motion automatically.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Spinner: pure CSS, no JS (Requirement 49) ===== -->
+    <section id="loading" class="loading">
+      <h2 class="section-title">Loading State</h2>
+      <p class="loading__caption">A pure-CSS spinner — no JavaScript, no SVG animation library.</p>
+      <div class="spinner" role="status" aria-label="Loading"></div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>&copy; 2026 Anisha — Full-Stack Internship — Practical 10A: Animated Landing Page</p>
+  </footer>
+
+</body>
+</html>
