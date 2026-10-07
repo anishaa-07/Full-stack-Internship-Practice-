@@ -28,7 +28,7 @@ This repository contains my hands-on practice and exercises completed during my 
 Through these exercises, I learned:
 
 - Creating and managing Git repositories
-- Tracking changes with Git
+- Tracking changes with Git 
 - Working with branches
 - Merging branches 
 - Connecting local repositories to GitHub
