@@ -30,7 +30,7 @@ Through these exercises, I learned:
 - Creating and managing Git repositories
 - Tracking changes with Git
 - Working with branches
-- Merging branches
+- Merging branches 
 - Connecting local repositories to GitHub
 - Cloning repositories
 - Collaborating using Git workflows
